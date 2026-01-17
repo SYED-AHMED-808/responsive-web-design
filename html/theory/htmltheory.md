@@ -243,3 +243,184 @@ By setting the character encoding to UTF-8, it will ensure that the accented `"e
 > ```
 For each new project you create, you should include this `meta` element with the `charset` attribute set to `UTF-8`.
 
+## Part-6
+
+What are Div Elements and When Should You Use Them?
+
+The `div` element is used as a container to group other elements.
+
+Here is an example of a `div` element. Add another paragraph element inside of the `div` element and see the changes in the preview window. To see the previews, you will need to enable the interactive editor.
+> ```
+> <div>
+>   <p>Example paragraph element.</p>
+> </div>
+> ```
+You will mainly use the `div` element when you want to group HTML elements that will share a set of CSS styles. You will learn more about CSS in future lessons and workshops.
+
+Even though the `div` element is commonly used in real world codebases, you should be careful not to overuse it. There are times when another element would be more appropriate.
+
+For example, if you wanted to divide up your content into sections, then the `section` element would be more appropriate than a `div` element.
+
+Add another `section` element below the first one. Then inside of the `section` element, a `h2` and `p` elements. You can use whatever text you like and you will see the changes in the preview window. To interact with the example, you will need to enable the interactive editor.
+
+> ```
+> <section>
+>   <h2>Mammals</h2>
+>   <p>
+>     Mammals are warm-blooded animals with fur or hair. Most give birth to live
+>     young.
+>   </p>
+>   <ul>
+>     <li>Lion</li>
+>     <li>Elephant</li>
+>     <li>Dolphin</li>
+>   </ul>
+> </section>
+> ```
+The `section` element has semantic meaning over the `div` element which is not semantic. Semantics are the meaning of words or phrases in a language. In HTML, which is a language, elements have their own semantic meaning too. So, this means if you use a `section` element, the browser will pick up its semantic meaning and understand to treat this as a section - on desktops, mobiles, you name it.
+
+## Part-7
+
+What Are IDs and Classes, and When Should You Use Them?
+
+The `id` attribute adds a unique identifier to an HTML element.
+
+Here is an example of an `h1` element with an `id` of `title`.
+
+Below the `h1` element, add an `h2` element with an `id` set to `"subtitle"`. You can write whatever text you like for the `h2` and you will see the changes in the preview window. To interact with the example, you will need to enable the interactive editor.
+
+
+> `<h1 id="title">Movie Review Page</h1>`
+
+You can reference the `id` name of `title` within your JavaScript or CSS. Here's a CSS example referencing the `id` of `title` to change the text `color` to `red`.
+
+***NOTE:*** Some CSS has been provided for you in this interactive example. Don't worry about trying to understand the CSS code because you will learn more about that in future lessons. But if you want to see the text color change to blue, enable the interactive editor, click on the `styles.css` tab and change the `color: red;` to `color: blue;`.
+
+> ```
+> <!DOCTYPE html>
+> <html lang="en">
+>   <head>
+>     <meta charset="utf-8" />
+>     <meta
+>        name="viewport"
+>        content="width=device-width, initial-scale=1.0" />
+>     <title>Review page Example</title>
+>     <link rel="stylesheet" href="./styles.css" />
+>   </head>
+>   <body>
+>     <h1 id="title">Movie Review Page</h1>
+>   </body>
+> </html>
+> ```
+
+> ```
+> #title {
+>   color: red;
+> }
+> ```
+The hash symbol (`#`) in front of `title`, tells the computer you want to target an `id` with that value. `id` names should not be used more than once, and they should always be unique. Another thing to note about `id` values, is that they cannot have spaces in them. Here is an example of applying the words `main` and `heading` to an `id` attribute value:
+
+
+> `<h1 id="main heading">Main heading</h1>`
+
+Browsers will see this space as part of the `id` which will lead to unwanted issues when it comes to styling and scripting. `id` attribute values should only contain letters, digits, underscores, and dashes.
+
+In contrast to the `id` attribute, the `class` attribute value does not need to be unique and can contain spaces.
+
+Here is an example of applying a class called `box` to a `div` element.
+
+> `<div class="box"></div>`
+
+If you wanted to add multiple class names to an element, you can do so by separating the names by a space. Here is an updated example applying multiple classes to a `div` element.
+
+> `<div class="box red-box"></div>`
+
+Here is an another example of applying multiple classes to multiple `div` elements.
+
+***NOTE:*** Some CSS has been provided for you in this interactive example. Don't worry about trying to understand the CSS code because you will learn more about that in future lessons. But if you wanted to change the color of the first and third boxes, enable the interactive editor and click on the `styles.css` tab and change the `background-color: red`; to `background-color: black;`.
+
+> ```
+> <!DOCTYPE html>
+> <html lang="en">
+>   <head>
+>     <meta charset="utf-8" />
+>     <meta
+>        name="viewport"
+>        content="width=device-width, initial-scale=1.0" />
+>     <title>Colored boxes example</title>
+>     <link rel="stylesheet" href="./styles.css" />
+>   </head>
+>   <body>
+>     <div class="box red-box"></div>
+>     <div class="box blue-box"></div>
+>     <div class="box red-box"></div>
+>     <div class="box blue-box"></div>
+>   </body>
+> </html>
+> ```
+
+> ```
+> .box {
+>   width: 100px;
+>   height: 100px;
+> }
+> 
+> .red-box {
+>   background-color: red;
+> }
+> 
+> .blue-box {
+>   background-color: blue;
+> }
+> ```
+
+## Part-8
+
+What Are HTML Entities, and What Are Some Common Examples?
+
+An HTML entity, or character reference, is a set of characters used to represent a reserved character in HTML.
+
+Let's say you wanted to display the text `This is an <img/>` element on the screen. If you use the code currently in the editor, it won't display the desired result. Even if you added `src` and `alt` attributes to the example, it would show an image in the middle of the paragraph. Not the desired result. To interact with the example, you will need to enable the interactive editor.
+
+> `<p>This is an <img /> element</p>`
+
+When the HTML parser sees the less than (`<`) symbol followed by an HTML tag name, it interprets that as an HTML element. That is why you are not getting the desired result of `This is an <img/>` element on the screen.
+
+To fix this issue, you can use HTML entities. Here is an updated example using the correct HTML entities for the less (`<`) than and greater than (`>`) symbols. Now you should see `This is an <img/> element` on the screen.
+
+> `<p>This is an &lt;img /&gt; element</p>`
+
+These types of character references are known as named character references. Named references start with an ampersand sign (`&`) and end with a semicolon (`;`). By using a named character reference, the HTML parser will not confuse this with an actual HTML element.
+
+Another type of character reference would be the decimal numeric reference. This character reference starts with an ampersand sign and hash symbol (`#`), followed by one or more decimal digits, followed by a semicolon.
+
+Here is an example of using the decimal numeric reference for the less than symbol.
+
+> `&#60;`
+
+The last type of character reference would be the hexadecimal numeric reference. This character reference starts with an ampersand sign, hash symbol, and the letter `x`. Then it is followed by one or more ASCII hex digits and ends with a semicolon.
+
+> `&#x3C;`
+
+## Part-9
+
+What Is the Role of the Script Element in HTML, and How Can It Be Used to Link to External JavaScript Files?
+
+The `script` element is used to embed executable code. Most developers will use this to execute JavaScript code. JavaScript is used to add interactivity to your web pages. Common examples of using JavaScript include interactive games, image sliders, and dynamic forms that validate user input in real-time.
+
+Here is an example of using the `script` element in an HTML document. Remove the `//` from in front of the `alert("Welcome to freeCodeCamp");` and you should see an alert pop up. To see the previews, you will need to enable the interactive editor.
+> ```
+> <body>
+>   <script>
+>     // alert("Welcome to freeCodeCamp");
+>   </script>
+> </body>
+> ```
+
+While you can technically write all of your JavaScript code inside the `script` tags, it is considered best practice to link to an external JavaScript file instead. Here is an example of using the `script` element to link to an external JavaScript file:
+
+> ```
+> <script src="path-to-javascript-file.js"></script>
+> ```
+
+The `src` attribute is used here to specify the location for that external JavaScript file. `src` stands for "source". The reason why it is not encouraged to place all of your JavaScript inside the HTML document is because of separation of concerns. Separation of concerns is a design principle where you separate your programs into distinct sections and have each section address a separate concern. In this case, we want to separate our JavaScript code from our HTML code.
