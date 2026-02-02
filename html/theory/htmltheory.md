@@ -586,3 +586,287 @@ You can also use the `source` element inside a `video` element, just like you di
 >   Your browser does not support the video tag.
 > </video>
 > ```
+
+## Part-13
+
+What Are Common Ways to Optimize Media Assets?
+
+There are three tools to consider when using media, such as images, on your web pages: the size, the format, and the compression.
+
+Let's talk about the size of your images first. When you are building a website, you'll often style images to display in a specific size. For example, you might have an image display at a 640x480 resolution. 640 represents the width while 480 represents the height in pixels. When preparing your image you want to scale it to a 640x480 size to match that styling. If you serve an image that is 1920x1080 but you are styling it to be much smaller, you're requiring your users to download unnecessary data. A smaller resolution results in a smaller file size.
+
+The next thing to consider is your file format. Two of the most common file formats are PNG and JPG, but these are no longer the most ideal formats for serving images. Unless you need support for older browsers, you should consider using a more optimized format, like WEBP or AVIF.
+
+Finally, you can run compression algorithms on your images. A compression algorithm is used to reduce the size for files or data. There are options like pngcrush to compress your images locally, or you can use online compression tools. However, it's worth noting that specific file formats, such as JPG, are not lossless. Lossless means that the original data can be perfectly reconstructed from the compressed data. If you try to compress a JPG image, it will result in a degraded quality. You should keep all these things in mind when selecting images for your web pages.
+
+## Part-14
+
+What Are the Different Types of Image Licenses, and How Do They Work?
+
+Images are considered intellectual property, this means that they are protected by copyright regulations, most often belonging to the creator. By default, images are released as all rights reserved. The creator, or publisher sometimes, holds all copyright for the image.
+
+This means that you cannot use them in your web page unless you do one of three things: obtain written permission from the copyright holder, purchase a license from the copyright holder, or incorporate the image in a way that falls under fair use.
+
+That third point is a bit tricky. Fair use requires that your use of the image is both limited and transformative. Some examples of fair use would be to comment on or review the art or create a parody of the image.
+
+Some images might be released under a permissive license, like a Creative Commons license, or the BSD license that freeCodeCamp uses. These images are available for use in your website, but you'll need to read the license to understand the rules you need to follow when using these images. For example, you might be required to make your website open source, or you may not be permitted to modify the image in any way.
+
+Finally, some images may be released to the public domain. An image under the public domain has no copyright attached to it and is free to be used without any restrictions. Images licensed specifically under the Creative Commons 0 license are considered public domain.
+
+Most search engines will allow you to filter image results by a license. There are also sites like Pixabay and Unsplash, which offer free-to-use images. Always be mindful of the copyright and licensing when you use an image in your website.
+
+## Part-15
+
+What Are SVGs, and When Should You Use Them?
+First, you need to understand how images work. Common image formats like PNG and JPG are classified as raster formats. This essentially means that they are pixel-based, with the data tracking the color value in each pixel.
+
+A large downside of raster based images is that they do not upscale well. If you've ever tried to make a PNG larger, you may have seen that it becomes pixelated, or blurry.
+
+An SVG is a different kind of image. SVG stands for a scalable vector graphic. A vector graphic tracks data based on paths and equations to plot points, lines, and curves. What this really means is that a vector graphic, like an SVG, can be scaled to any size without impacting the quality.
+
+SVGs specifically have the added benefit of storing data in XML. This means you can use them directly in your code as raw HTML with the `svg` element. It also means you can programmatically change the color of the image.
+
+To change the smiley face to red, enable the interactive editor and change the `fill="yellow"` to `fill="red"`.
+> ```
+> <svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+>   <circle cx="50" cy="50" r="45" stroke="black" stroke-width="4" fill="yellow" />
+>   <circle cx="35" cy="40" r="5" fill="black" />
+>   <circle cx="65" cy="40" r="5" fill="black" />
+>   <path d="M35 65 Q50 80 65 65" stroke="black" stroke-width="4" fill="transparent" />
+> </svg>
+> ```
+
+Here are the basic elements for the example:
+
+- The `svg` element is the container for the whole drawing. It sets up the space where all the shapes appear. Everything you want to draw with SVG, such as circles, lines, or paths, goes inside the `svg` element.
+- The `circle` element is used to make the face and the eyes. One large circle forms the yellow face, and two smaller circles make the eyes.
+- The `path` element is used to draw the smile. It creates a curved line for the mouth.
+- Each SVG element has attributes that control its appearance and position within the drawing area.
+
+Here are a few more examples. To change the color for any of the examples, update the value for the `fill` attribute to any named color like `red`, `green`, `blue`, `yellow`, etc.
+
+> ```
+> <!-- Star Icon -->
+> <svg width="50" height="50" viewBox="0 0 24 24" fill="gold" xmlns="http://www.w3.org/2000/svg">
+>   <path d="M12 2L14.9 8.6L22 9.3L17 14.1L18.3 21.2L12 17.8L5.7 21.2L7 14.1L2 9.3L9.1 8.6L12 2Z"/>
+> </svg>
+> 
+> <!-- Heart Icon -->
+> <svg width="50" height="50" viewBox="0 0 24 24" fill="crimson" xmlns="http://www.w3.org/2000/svg">
+>   <path d="M12 21.35L10.55 20.03C5.4 15.36 2 12.28 2 8.5C2 6 4 4 6.5 4C8 4 9.5 4.8 10.5 6.09C11.5 4.8 13 4 14.5 4C17 4 19 6 19 8.5C19 12.28 15.6 15.36 10.45 20.04L12 21.35Z"/>
+> </svg>
+> 
+> <!-- Checkmark Icon -->
+> <svg width="50" height="50" viewBox="0 0 24 24" fill="green" xmlns="http://www.w3.org/2000/svg">
+>   <path d="M20.29 5.71L9 17L3.71 11.71L5.12 10.29L9 14.17L18.88 4.29L20.29 5.71Z"/>
+> </svg>
+> ```
+
+So when would you want to use an SVG? A great use case is for icons. If you want to create custom bullet points, or add icons to your links to represent social media platforms, using SVGs is the best approach. One of the most popular icon libraries, Font Awesome, uses SVG images for their icons. SVGs are also great for webpage logos, because they scale perfectly. They allow you to adapt your layout to any responsive design you need. Next time you have an SVG locally, try opening it with a text editor and playing with the code.
+
+
+## Part-16
+
+What Are Replaced Elements, and What Are Some Examples?
+
+A replaced element is an element whose content is determined by an external resource rather than by CSS itself. CSS, or cascading stylesheets, is used to add styles to a web page. Common examples of replaced elements include the image, iframe, and video elements.
+
+With replaced elements, you can control the position, or layout of an element. But your CSS cannot directly modify the content of that element. This might be easier to explain with some examples. Consider the image element, which embeds an image on your web page:
+
+> ```<img src="example-img-url" alt="Descriptive text goes here"> ```
+
+The element itself is replaced with the external object: the image. Your CSS can control things like the positioning of the image, or apply a filter to it, but you cannot actually modify the image itself. A more robust example might be the `iframe` element, which embeds an external site on your web page.
+
+Here is an example of using the `iframe` element for a popular YouTube video on the freeCodeCamp channel. If you want to see different videos in the preview window, change the value of the `src` attribute to a video of your choosing. To see the previews, you will need to enable the interactive editor.
+
+NOTE: Don't worry about the extra attributes mentioned in the interactive example like `referrerpolicy` and `allowfullscreen`. You will learn more about working with `iframe` elements in a future workshop.
+
+> ```
+> <iframe width="400" height="200" src="https://www.youtube.com/embed/u43gJJrVa1I?si=BoDW_puFsy8OEr_Z" title="Professional Cloud Architect Certification Course – Pass the Exam! (YouTube video)" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+> ```
+
+Other common examples of using the `iframe` element would be to embed maps onto the page. Here is an example of an embedded map.
+
+Enable the interactive editor and try playing around with the map itself by zooming in/out.
+
+> ```
+> <iframe
+>   title="Map of the Royal Observatory, Greenwich, London"
+>   width="300"
+>   height="200"
+>   src="https://www.openstreetmap.org/export/embed.html?bbox=-0.004017949104309083%2C51.47612752641776%2C0.00030577182769775396%2C51.478569861898606&amp;layer=mapnik">
+> </iframe>
+> ```
+
+The element itself is replaced with the external object: the site. Your CSS can change the positioning of the embedded site, but you cannot modify the site's contents. To dive a bit further, if the embedded site has an `h1` element, your CSS would not be able to style that `h1` element. You cannot change the size, font color, and so on.
+
+There are some other replaced elements, such as `video`, and `embed`. And some elements behave as replaced elements under specific circumstances. Here's an example of an `input` element with the `type` attribute set to `image`:
+
+> ```<input type="image" alt="Descriptive text goes here" src="example-img-url">```
+
+This type of `input` is considered to be a replaced element, but other `input` types like `text`, or `email` are not replaced elements.
+
+
+## Part-17
+
+How Do You Embed Videos onto Your Page Using the iframe Element?
+
+In a prior lesson, you were first introduced to the `iframe` element. In this lesson, you will learn more about how to work with the `iframe` element. This element stands for inline frame. It's an inline element used to embed other HTML content directly within the HTML page. That HTML content could be a video, map, another HTML element, or even other web pages.
+
+Here's an example of embedding a popular freeCodeCamp course from YouTube. To see a different video, enable the interactive editor and change the `src` value to a video of your choosing.
+
+> ```
+> <iframe
+>   width="400"
+>   height="400"
+>   src="https://www.youtube.com/embed/PkZNo7MFNFg?si=-UBVIUNM3csdeiWF"
+>   title="Learn JavaScript - Full Course for Beginners (YouTube video)"
+>   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+>   referrerpolicy="strict-origin-when-cross-origin"
+>   allowfullscreen
+> ></iframe>
+> ```
+
+The `src` attribute specifies the URL of the page you want to embed. The `width` attribute specifies the width of the `iframe`. The `height` attribute specifies the height of the `iframe`. The `allowfullscreen` attribute allows the user to display the `iframe` in full screen mode. It's also a good practice to specify a `title` attribute for the `iframe`, as it's important for accessibility.
+
+The `allow` attribute, on the other hand, lets you define what an iframe can or can't do. This is called an allowlist. In the above example, adding `clipboard-write` to it allows the embedded page to write items to your clipboard. Items in an allowlist can be separated by semicolons or spaces, and both can be used together.
+
+Note that the video can come from anywhere. It doesn't have to come from video services like YouTube and Vimeo.
+
+Don't forget you can also embed a map, another web page, or direct HTML within the `iframe `element. Here is an example of an embedded map.
+
+> ```
+> <h1>A Map from Openstreetmap.org Embedded with the iframe Element</h1>
+> 
+> <iframe
+>   width="425"
+>   height="350"
+>   src="https://www.openstreetmap.org/export/embed.html?bbox=3.006134033203125%2C6.150112578753815%2C3.6357879638671875%2C6.749850810550778&amp;layer=mapnik"
+>   title="Map of Lagos area, Nigeria"
+>   style="border: 1px solid black"
+> >
+> </iframe>
+> <br />
+> <small>
+>   <a href="https://www.openstreetmap.org/#map=11/6.4501/3.3210">
+>     View Larger Map
+>   </a>
+> </small>
+> ```
+
+If you want to embed direct HTML within the `iframe` element you have to use the `srcdoc` attribute instead of `src`.
+
+
+## Part-18
+
+What Are the Different Target Attribute Types, and How Do They Work?
+
+You may have seen the `target` attribute on anchor elements, or links. This important attribute tells the browser where to open the URL for the anchor element.
+
+Enable the interactive editor, click on the link and you will be directed to the freeCodeCamp homepage in a new browser tab.
+
+> ```<a href="https://freecodecamp.org" target="_blank">Visit freeCodeCamp</a> ```
+
+There are four important possible values for this attribute. Note that each value is preceded by an underscore.
+
+The first value is `_self`, which is the default value. This opens the link in the current browsing context. In most cases, this will be the current tab or window.
+
+The second value is `_blank`, which opens the link in a new browsing context. Typically, this will open in a new tab. But some users might configure their browsers to open a new window instead.
+
+The third value is `_parent`, which opens the link in the parent of the current context. For example, if your website has an `iframe`, a `_parent` value in that `iframe` would open in your website's tab/window, not in the embedded frame.
+
+The fourth value is `_top`, which opens the link in the top-most browsing context - think "the parent of the parent". This is similar to `_parent`, but the link will always open in the full browser tab/window, even for nested embedded frames.
+
+There is a fifth value, called `_unfencedTop`, which is currently used for the experimental FencedFrame API. At the time of this lesson, you probably won't have a reason to use this one yet.
+
+Selecting the right `target` value to control where your users end up is an important consideration when creating a website.
+
+## Part-19
+
+What Is the Difference Between Absolute and Relative Paths?
+
+A path is a string that specifies the location of a file or directory in a file system. In web development, paths let developers link to resources like images, stylesheets, scripts, and other web pages. There are absolute and relative paths - both are essential when specifying file locations within a file system. Let's look at the two so you can decide which one of them to use and when.
+
+An absolute path is a complete link to a resource. It starts from the root directory, includes every other directory, and finally the filename and extension. The "root directory" refers to the top-level directory or folder in a hierarchy.
+
+An absolute path also includes the protocol - which could be `http`, `https`, and `file` and the domain name if the resource is on the web. Here's an example of an absolute path that links to the freeCodeCamp logo:
+
+Example Code
+> ```
+> <a href="https://design-style-guide.freecodecamp.org/img/fcc_secondary_small.svg">
+>   View fCC Logo
+> </a>
+> ```
+
+In this example, the protocol is `https`, the domain name is `design-style-guide.freecodecamp.org`, and the filename is `fcc_secondary_small.svg`.
+
+Now, what if the resource you want to link to using an absolute path is on your local machine? Here's how to link to the `about.html` file with an absolute path:
+
+Example Code
+> ```
+> <p>
+>   Read more on the
+>   <a
+>     href="/Users/user/Desktop/fCC/script-code/absolute-vs-relative-paths/pages/about.html"
+>     >About Page</a
+>     >
+> </p>
+> ```
+
+It looks like this because we are going into a folder called `Users`, then into a folder called `user`, then into a folder called `Desktop`, then into a folder called `fCC`, then into a folder called `script-code`, then into a folder called `absolute-vs-relative-paths`, then into a folder called `pages` to finally get the `about.html` file.
+
+Here's what the absolute URL looks like in the browser address bar:
+
+Example Code
+
+> `file:///Users/user/Desktop/fCC/script-code/absolute-vs-relative-paths/pages/about.html`
+
+The URL includes the protocol, `file://`. It also includes the path, which looks like this: `/Users/user/Desktop/fCC/script-code/absolute-vs-relative-paths/pages/`, and represents the series of folders that lead to the file. And finally, it also includes the `about.html`, which is the filename and the extension.
+
+Now, lets look at the relative path. A relative path specifies the location of a file relative to the directory of the current file. It does not include the protocol or the domain name, making it shorter and more flexible for internal links within the same website. Here's an example of linking to the `about.html` page from the `contact.html` page, both of which are in the same folder:
+
+Example Code
+>```
+> <p>
+>   Read more on the
+>   <a href="about.html">About Page</a>
+> </p>
+> ```
+
+So imagine you are on the `contact.html` page, and because the `about.html` page is in the same place, you simply get the filename. This is an example of using a relative file path.
+
+So, which should you use and when; an absolute path or a relative path? Here are the rules you should follow:
+
+- Use absolute paths when linking to a resource hosted on an external website.
+- Use absolute paths when you need the link to a page or resource to work consistently regardless of the document location within the site.
+- Use relative paths when linking to resources within the same website.
+- Use relative paths if you want to keep your code cleaner and easier to maintain during development.
+- Use relative paths during local testing to ensure links work without an internet connection.
+
+
+## Part-20
+
+What Is the Difference Between Slashes, a Single Dot, and Double Dot in Path Syntax?
+
+You may have seen links like `/public/logo.png`, `./script.js`, or `../styles.css` before. But what do these special types of links mean? These are called file paths. There are three key syntaxes to know. First is the slash, which can be a backslash (`\`) or forward slash (`/`) depending on your operating system. The second is the single dot (`.`). And finally, we have the double dot (`..`).
+
+The slash is known as the "path separator". It is used to indicate a break in the text between folder or file names. This is how your computer knows that `naomis-files/` points to a directory of that same name, while `naomis/files/` points to a `files` directory in the `naomis` directory.
+
+A single dot points to the current directory, and two dots point to the parent directory. You will typically see a single dot used to ensure that the path is recognized as a relative path. Remember that you learned in a previous lesson about relative versus absolute paths before.
+
+Double dots, however, are much more common to access files outside of the current working directory.
+
+For example, given this file tree:
+
+Example Code
+> ```
+> my-app/
+> ├─ public/
+> │  ├─ favicon.ico
+> │  ├─ index.html
+> ├─ src/
+> │  ├─ index.css
+> │  ├─ index.js
+> ```
+
+If your `public/index.html` file needed to load the favicon.ico file, you would use a relative path with a single dot to access the current directory: `./favicon.ico`. If your `public/index.html` file needed to load the `index.css` file, you would use a relative path with double dots to navigate to the parent `my-app` directory first, then to the `src` directory, and finally to your file: `../src/index.css`.
